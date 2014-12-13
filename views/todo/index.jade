@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+
+    div(ng-app= 'todoAddict')
+        div(ng-controller= 'mainController')
+            div.container
+                div.jumbotron.text-center
+                    h1 I'm a Todo-aholic
+                        span.label.label-info {{ todos.length }}
+
+                div.row(id='todo-list')
+                    div.col-sm-4.col-sm-offset-4
+                        div.checkbox(ng-repeat='todo in todos')
+                            label
+                                input(type='checkbox', ng-click='deleteTodo(todo._id)')
+                                | {{ todo.text }}
+                div.row(id='todo-form')
+                    div.col-sm-8.col-sm-offset-2.text-center
+                        form
+                            div.form-group
+                                input.form-control.input-lg.text-center(type='text', placeholder='I want to buy a puppy that will love me forever', ng-model='formData.text')
+                        button.btn.btn-primary.btn-lg(type='submit', ng-click='createTodo()') Add
+
+
+block scripts
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js")
+    script(src="/js/todo/index.js")
