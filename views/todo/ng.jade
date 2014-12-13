@@ -1,5 +1,8 @@
 extends ../layout
 
+block head
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
+
 block content
 
     div(ng-app= 'todoAddict')
@@ -23,6 +26,6 @@ block content
                         button.btn.btn-primary.btn-lg(type='submit', ng-click='createTodo()') Add
 
 
-block scripts
-    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js")
-    script(src="/js/todo/index.js")
+    block scripts
+        script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js")
+        script(src="/js/todo/ng.js")

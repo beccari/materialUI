@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 var router = express.Router();
 
-mongoose.connect('mongodb://meceap.devdb.local:27017/todo');
+mongoose.connect('mongodb://localhost:27017/todo');
 
 // model
 var Todo = mongoose.model('Todo', {
@@ -24,7 +24,15 @@ var respondAll = function (res) {
 /* GET todo page. */
 
 router.get('/', function (req, res) {
-    res.render('todo/index', {title: 'Todo'});
+    res.render('todo/ng', {title: 'Todo'});
+});
+
+router.get('/ng', function (req, res) {
+    res.render('todo/ng', {title: 'Todo Angular'});
+});
+
+router.get('/rt', function (req, res) {
+   res.render('todo/rt', { title: 'Todo with React'})
 });
 
 // get all todos
