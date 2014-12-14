@@ -3,7 +3,7 @@ var todoAddict = angular.module('todoAddict', []);
 function mainController($scope, $http) {
     $scope.formData = {};
 
-    $http.get('todo/api/todos')
+    $http.get('/todo/api/todos')
         .success(function(data) {
             $scope.todos = data;
         })
@@ -13,7 +13,7 @@ function mainController($scope, $http) {
 
 
     $scope.createTodo = function() {
-        $http.post('todo/api/todos', $scope.formData)
+        $http.post('/todo/api/todos', $scope.formData)
             .success(function(data) {
                 $scope.formData = {}; // cleanup form
 
@@ -25,7 +25,7 @@ function mainController($scope, $http) {
     }
 
     $scope.deleteTodo = function(id) {
-        $http.delete('todo/api/todos/' + id)
+        $http.delete('/todo/api/todos/' + id)
             .success(function(data) {
                 $scope.todos = data;
             })
